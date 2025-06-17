@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Stellar Genesis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>   <h1> Stellar Genesis</h1>
+  </header>
+  <div id="starfield"></div>
+
+  <div id="resources">
+    Énergie stellaire : <span id="energy">0</span> ⚡<br>
+    Production/sec : <span id="eps">0</span>
+  </div>
+  <div class="click-container">
+  <button id="clicker" class="planet-button">
+    <img src="images/planet.png" alt="Collecter de l'énergie">
+  </button>
+</div>
+<div id="upgrade-popup" class="hidden">
+  <div class="popup-content">
+    <h2>Améliorations activées</h2>
+    <ul id="purchased-upgrades">
+    
+    </ul>
+    <button id="close-upgrade-popup">Retour</button>
+  </div>
+</div>
+<div id="menu">
+  <button id="menu-toggle">☰</button>
+  <div id="menu-content">
+    <button id="save-btn">💾 Sauvegarder</button>
+
+    <button id="open-upgrade-popup"> Améliorations activées</button>
+
+    <button id="reset-btn"> Réinitialiser</button>
+  </div>
+<div id="reset-confirm-popup" class="hidden">
+  <div class="popup-content">
+    <h2>Réinitialiser la partie</h2>
+    <p>Es-tu sûr de vouloir tout recommencer ?</p>
+    <div class="popup-buttons">
+      <button id="confirm-reset" class="danger">Oui, réinitialiser</button>
+      <button id="cancel-reset">Annuler</button>
+    </div>
+  </div>
+</div>
+</div>
+  <section id="shop-container">
+  <h2>Boutique</h2>
+  <div id="shop-scroll">
+    <div class="shop-card shop-item" data-cost="10" data-power="1">
+      🔭 <h3>Satellite Collecteur</h3>
+      <p>+1/sec</p>
+      <p class="cost">Coût : 10 ⚡</p>
+    </div>
+    <div class="shop-card shop-item" data-cost="100" data-power="5">
+      🌍 <h3>Formation de planète</h3>
+      <p>+5/sec</p>
+      <p class="cost">Coût : 100 ⚡</p>
+    </div>
+    <div class="shop-card shop-item" data-cost="500" data-power="15">
+      🌞 <h3>Étoile naissante</h3>
+      <p>+15/sec</p>
+      <p class="cost">Coût : 500 ⚡</p>
+    </div>
+    <div class="shop-card shop-item" data-cost="2000" data-power="50">
+      🌀 <h3>Mini trou noir</h3>
+      <p>+50/sec</p>
+      <p class="cost">Coût : 2000 ⚡</p>
+     
+    </div>
+     <div class="shop-card shop-item special-upgrade hidden" id="supernova-upgrade" data-cost="4000" data-power="150">
+  🌟 <h3>Supernova de production</h3>
+      <p><small>Débloquée après plusieurs acquisitions</small></p>
+      <p>+150/sec</p>
+      <p class="cost">Coût : 4000 ⚡</p>
+      </div>
+  </div>
+</section>
+
+
+  <div id="stage">
+    Stade actuel : Nuage de gaz cosmique
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
