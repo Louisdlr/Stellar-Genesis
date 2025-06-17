@@ -408,3 +408,36 @@ h1 {
 #cancel-reset:hover {
   background-color: #666;
 }
+.purchase-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: radial-gradient(circle, white, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000;
+  opacity: 0.9;
+  transform: scale(1);
+  animation: fly-purchase 1s ease-out forwards, sparkle 0.8s linear infinite;
+}
+
+@keyframes fly-purchase {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0.5);
+    opacity: 0;
+    filter: blur(3px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    box-shadow: 0 0 4px white, 0 0 8px var(--color);
+  }
+  50% {
+    box-shadow: 0 0 12px white, 0 0 24px var(--color);
+  }
+}

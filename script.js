@@ -107,7 +107,7 @@ earthClick.addEventListener('click', () => {
     const costElem = item.querySelector(".cost");
     if (costElem) costElem.textContent = `Coût : ${newCost} ⚡`;
 
-
+      spawnPurchaseParticles(item);
       updateDisplay();
       updateStage();
       saveGame();
@@ -226,6 +226,36 @@ function updateUpgradeList() {
     list.appendChild(li);
   }
 }
+function spawnPurchaseParticles(targetElement) {
+  const rect = targetElement.getBoundingClientRect();
+  const colors = ["#ff77ff", "#a66cff", "#00ffe1", "#ffe95c", "#b389ff"];
+
+  for (let i = 0; i < 15; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'purchase-particle';
+
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = 50 + Math.random() * 100;
+    const x = Math.cos(angle) * distance;
+    const y = Math.sin(angle) * distance;
+
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    particle.style.setProperty('--color', color);
+    particle.style.background = `radial-gradient(circle at center, white, ${color})`;
+
+    particle.style.setProperty('--x', `${x}px`);
+    particle.style.setProperty('--y', `${y}px`);
+
+    // Position centrée sur la carte achetée
+    particle.style.left = `${rect.left + rect.width / 2}px`;
+    particle.style.top = `${rect.top + rect.height / 2}px`;
+
+    document.body.appendChild(particle);
+
+    setTimeout(() => particle.remove(), 1000);
+  }
+}
+
 
 const openPopupBtn = document.getElementById("open-upgrade-popup");
 const closePopupBtn = document.getElementById("close-upgrade-popup");
